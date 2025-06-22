@@ -4,61 +4,86 @@ A Linux tool that grabs exclusive control over keyboard and mouse input by displ
 
 ---
 
-## Contents
-
-- `Black_win.sh` — Bash script that streams `/dev/random` into dynamic named pipes and launches the Python fullscreen input grabber.  
-- `freeze_script.py` — Python script that creates a fullscreen black window, grabs keyboard and mouse input exclusively using X11, and hides the mouse cursor.
+Sure! Here's a simple and clear **`README.md`** to explain how to install and uninstall **Black Wind** on a Linux system:
 
 ---
 
-## Features
+### 📄 `README.md`
 
-- Grabs all keyboard and mouse input exclusively using X11, preventing other applications from receiving input events.  
-- Displays a fullscreen black window using Tkinter with the mouse cursor hidden for a clean and locked-down user experience.  
-- Streams entropy from `/dev/random` into named pipes located in `/dev/shm/*.pipe` in the background, dynamically handling pipe names.  
-- Ensures proper release of grabbed inputs when the program exits.
+````markdown
+# Black Wind by IACEENE
 
----
-
-## Requirements
-
-- Linux system running X11 (e.g., most Linux desktop environments)  
-- Python 3.x  
-- `python-xlib` Python package (`pip install python-xlib`)  
-- `tkinter` (usually included with Python)  
+Black Wind is a lightweight desktop launcher and tool designed for Linux systems using the GNOME desktop environment.
 
 ---
 
-## Installation
+## 📦 Installation
 
-1. Clone or download this repository:  
-    ```bash
-    git clone https://github.com/yaajagro/Black_Window.git
-    cd Black_Window
-    ```
+1. **Open a terminal** in the project folder.
+2. **Make the install script executable** (if not already):
 
-2. Install Python dependencies:  
-    ```bash
-    pip install python-xlib
-    ```
-
-3. Make the Bash script executable:  
-    ```bash
-    chmod +x Black_win.sh
-    ```
-
----
-
-## Usage
-
-Run the Bash script `Black_win.sh`, which:
-
-- Finds all named pipes matching `/dev/shm/*.pipe` and streams `/dev/random` into them in the background.  
-- Then runs the fullscreen input grabber Python script `freeze_script.py`.
-
-```bash
-./Black_win.sh
+   ```bash
+   chmod +x install_black_wind.sh
 ````
+
+3. **Run the install script**:
+
+   ```bash
+   ./install_black_wind.sh
+   ```
+
+   The script will:
+
+   * Copy required files to your local app directory.
+   * Create a `.desktop` launcher.
+   * Install the required Python dependency (`python-xlib`).
+   * Add Black Wind to your GNOME favorites.
+
+---
+
+## 🧹 Uninstallation
+
+1. **Make the uninstall script executable**:
+
+   ```bash
+   chmod +x uninstall_black_wind.sh
+   ```
+
+2. **Run the uninstaller**:
+
+   ```bash
+   ./uninstall_black_wind.sh
+   ```
+
+   This will:
+
+   * Remove the app files and launcher.
+   * Update the desktop environment.
+   * Remove Black Wind from your GNOME favorites.
+
+---
+
+## ⚙️ Requirements
+
+* Linux system with GNOME desktop
+* Python and `pip` installed
+* `gnome-terminal` (used to run the app script)
+* `python-xlib` (installed automatically)
+
+---
+
+## 📁 File Structure
+
+```
+.
+├── install_black_wind.sh
+├── uninstall_black_wind.sh
+├── src/
+│   ├── app_icon.png
+│   ├── Black_win.sh
+│   └── freeze_script.py
+└── README.md
+```
 
 ---
 
