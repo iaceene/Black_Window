@@ -28,14 +28,16 @@ cp "./src/app_icon.png" "$APP_PATH/image.png"
 cp "./src/Black_win.sh" "$APP_PATH/Black_win.sh"
 cp "./src/freeze_script.py" "$APP_PATH/freeze_script.py"
 
+chmod +x "$APP_PATH/Black_win.sh"
+
 loading_bar 6 "Creating .desktop file"
 cat > "$DESK_FILE" <<EOF
 [Desktop Entry]
 Name=Black Wind by IACEENE
 Comment=Launch Black Wind by IACEENE
-Exec=gnome-terminal --geometry=10x10 -- bash -c '$HOME/.local/share/apps/Black_win/Black_win.sh'
+Exec='$HOME/.local/share/apps/Black_wind/Black_win.sh'
 Icon=$APP_PATH/image.png
-Terminal=false
+Terminal=true
 Type=Application
 Categories=Development;Utility;
 EOF
@@ -52,7 +54,7 @@ if [[ $FAVS != *"$APP"* ]]; then
 fi
 
 loading_bar 5 "Installing Python dependency (python-xlib)"
-cd $APP_PATH
+cd "$APP_PATH"
 pip install python-xlib
 
 echo -e "\n✅ Setup completed successfully!"
