@@ -15,14 +15,18 @@ loading_bar() {
 clear
 
 loading_bar 5 "Defining paths"
-DESK_DIR="$HOME/.local/share/applications/Black_Wind"
+TARG_PATH="$HOME/.local/share/"
+APP_PATH="$TARG_PATH/apps/Black_wind"
+DESK_DIR="$TARG_PATH/applications"
 DESK_FILE="$DESK_DIR/Black_Wind.desktop"
 
 loading_bar 4 "Creating directory"
-mkdir -p "$DESK_DIR"
+mkdir -p "$APP_PATH"
 
-loading_bar 3 "Copying icon"
-cp "app_icon.png" "$DESK_DIR/image.png"
+loading_bar 3 "Copying Files"
+cp "./src/app_icon.png" "$APP_PATH/image.png"
+cp "./src/Black_win.sh" "$APP_PATH/Black_win.sh"
+cp "./src/freeze_script.py" "$APP_PATH/freeze_script.py"
 
 loading_bar 6 "Creating .desktop file"
 cat > "$DESK_FILE" <<EOF
@@ -30,7 +34,7 @@ cat > "$DESK_FILE" <<EOF
 Name=Black Wind by IACEENE
 Comment=Launch Black Wind by IACEENE
 Exec=gnome-terminal --geometry=10x10 -- bash -c '$HOME/.local/share/apps/Black_win/Black_win.sh'
-Icon=$DESK_DIR/image.png
+Icon=$APP_PATH/image.png
 Terminal=false
 Type=Application
 Categories=Development;Utility;
@@ -39,7 +43,7 @@ EOF
 loading_bar 3 "Updating desktop database"
 update-desktop-database "$HOME/.local/share/applications/"
 
-loading_bar 4 "Adding to GNOME favorites (if needed)"
+loading_bar 4 "Adding to GNOME favorites"
 APP="Black_Wind.desktop"
 FAVS=$(gsettings get org.gnome.shell favorite-apps)
 if [[ $FAVS != *"$APP"* ]]; then
@@ -48,6 +52,7 @@ if [[ $FAVS != *"$APP"* ]]; then
 fi
 
 loading_bar 5 "Installing Python dependency (python-xlib)"
+cd $APP_PATH
 pip install python-xlib
 
 echo -e "\n✅ Setup completed successfully!"
