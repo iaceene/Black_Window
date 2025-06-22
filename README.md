@@ -95,6 +95,3 @@ For questions or support, please open an issue on the GitHub repository.
 ---
 
 *Thank you for using Black Window!*
-
-```
-
