@@ -29,7 +29,7 @@ echo "Your secret : $SECRET"
 clear
 
 
-loading_bar 5 "Seting your secret key"
+loading_bar 5 "Setting your secret key"
 echo $SECRET > $SEC_PATH
 
 
