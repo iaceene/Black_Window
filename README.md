@@ -4,29 +4,21 @@ A Linux tool that grabs exclusive control over keyboard and mouse input by displ
 
 ---
 
-Sure! Here's a simple and clear **`README.md`** to explain how to install and uninstall **Black Wind** on a Linux system:
+## Legal Disclaimer
 
----
+**Use this tool responsibly.**
 
-### 📄 `README.md`
-
-````markdown
-# Black Wind by IACEENE
-
-Black Wind is a lightweight desktop launcher and tool designed for Linux systems using the GNOME desktop environment.
+* This software is provided for educational and lawful use cases such as kiosk setups, security research, or controlled environments requiring exclusive input control.
+* The author **is not responsible** for any illegal, malicious, or unauthorized use of this software.
+* Users assume all responsibility and risk arising from the use or misuse of this tool.
+* Ensure you have proper authorization and permissions before running this software on any system.
 
 ---
 
 ## 📦 Installation
 
-1. **Open a terminal** in the project folder.
-2. **Make the install script executable** (if not already):
 
-   ```bash
-   chmod +x install_black_wind.sh
-````
-
-3. **Run the install script**:
+**Run the install script**:
 
    ```bash
    ./install_black_wind.sh
@@ -35,6 +27,7 @@ Black Wind is a lightweight desktop launcher and tool designed for Linux systems
    The script will:
 
    * Copy required files to your local app directory.
+   * Prompt you for a SECRET key.
    * Create a `.desktop` launcher.
    * Install the required Python dependency (`python-xlib`).
    * Add Black Wind to your GNOME favorites.
@@ -43,13 +36,7 @@ Black Wind is a lightweight desktop launcher and tool designed for Linux systems
 
 ## 🧹 Uninstallation
 
-1. **Make the uninstall script executable**:
-
-   ```bash
-   chmod +x uninstall_black_wind.sh
-   ```
-
-2. **Run the uninstaller**:
+**Run the uninstaller**:
 
    ```bash
    ./uninstall_black_wind.sh
@@ -70,20 +57,6 @@ Black Wind is a lightweight desktop launcher and tool designed for Linux systems
 * `gnome-terminal` (used to run the app script)
 * `python-xlib` (installed automatically)
 
----
-
-## 📁 File Structure
-
-```
-.
-├── install_black_wind.sh
-├── uninstall_black_wind.sh
-├── src/
-│   ├── app_icon.png
-│   ├── Black_win.sh
-│   └── freeze_script.py
-└── README.md
-```
 
 ---
 
@@ -96,27 +69,6 @@ Black Wind is a lightweight desktop launcher and tool designed for Linux systems
 
 ---
 
-## Legal Disclaimer
-
-**Use this tool responsibly.**
-
-* This software is provided for educational and lawful use cases such as kiosk setups, security research, or controlled environments requiring exclusive input control.
-* The author **is not responsible** for any illegal, malicious, or unauthorized use of this software.
-* Users assume all responsibility and risk arising from the use or misuse of this tool.
-* Ensure you have proper authorization and permissions before running this software on any system.
-
----
-
 ## License
 
 This project is released under the MIT License.
-
----
-
-## Contact
-
-For questions or support, please open an issue on the GitHub repository.
-
----
-
-*Thank you for using Black Window!*
