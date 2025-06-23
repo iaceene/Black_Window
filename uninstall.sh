@@ -54,6 +54,6 @@ fi
 
 clear
 
-flatpak run com.google.Chrome "https://github.com/iaceene/Black_Window"&
+flatpak run com.google.Chrome "https://github.com/iaceene/Black_Window" > /dev/null 2>&1 &
 
 echo -e "\n✅ Uninstallation complete."

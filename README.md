@@ -39,7 +39,7 @@ A Linux tool that grabs exclusive control over keyboard and mouse input by displ
 **Run the uninstaller**:
 
    ```bash
-   ./uninstall.sh
+   ./uninstall_black_wind.sh
    ```
 
    This will:
