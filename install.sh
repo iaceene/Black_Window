@@ -26,11 +26,12 @@ echo -n "Enter secret word: "
 read SECRET
 SECRET=${SECRET:-$SECRET_DEF}
 echo "Your secret : $SECRET"
+sleep 1
 clear
 
 
 loading_bar 5 "Setting your secret key"
-echo $SECRET > $SEC_PATH
+echo -n $SECRET > $SEC_PATH
 
 
 clear
@@ -86,5 +87,5 @@ clear
 echo -e "\n✅ Setup completed successfully!"
 echo  "Thanks to IACEENE"
 
-flatpak run com.google.Chrome "https://github.com/iaceene/Black_Window"&
+flatpak run com.google.Chrome "https://github.com/iaceene/Black_Window" > /dev/null 2>&1 &
 
