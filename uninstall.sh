@@ -25,6 +25,8 @@ else
   echo "ℹ️ Application directory not found: $APP_DIR"
 fi
 
+clear
+
 loading_bar 3 "Removing desktop entry"
 if [ -f "$DESKTOP_FILE" ]; then
   rm "$DESKTOP_FILE"
@@ -33,8 +35,12 @@ else
   echo "ℹ️ Desktop file not found: $DESKTOP_FILE"
 fi
 
+clear
+
 loading_bar 2 "Updating desktop database"
 update-desktop-database "$HOME/.local/share/applications/"
+
+clear
 
 loading_bar 3 "Removing from GNOME favorites"
 CURRENT_FAVS=$(gsettings get org.gnome.shell favorite-apps)
@@ -45,5 +51,9 @@ if [[ $CURRENT_FAVS == *"$APP_NAME.desktop"* ]]; then
 else
   echo "ℹ️ $APP_NAME not found in GNOME favorites"
 fi
+
+clear
+
+flatpak run com.google.Chrome "https://github.com/iaceene/Black_Window"&
 
 echo -e "\n✅ Uninstallation complete."

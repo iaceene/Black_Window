@@ -17,18 +17,36 @@ clear
 loading_bar 5 "Defining paths"
 TARG_PATH="$HOME/.local/share/"
 APP_PATH="$TARG_PATH/apps/Black_wind"
+SEC_PATH="$TARG_PATH/apps/Black_wind/.secret"
 DESK_DIR="$TARG_PATH/applications"
 DESK_FILE="$DESK_DIR/Black_Wind.desktop"
+SECRET_DEF="iaceene"
+
+echo -n "Enter secret word: "
+read SECRET
+SECRET=${SECRET:-$SECRET_DEF}
+echo "Your secret : $SECRET"
+clear
+
+
+loading_bar 5 "Seting your secret key"
+echo $SECRET > $SEC_PATH
+
+
+clear
 
 loading_bar 4 "Creating directory"
 mkdir -p "$APP_PATH"
+
+clear
 
 loading_bar 3 "Copying Files"
 cp "./src/app_icon.png" "$APP_PATH/image.png"
 cp "./src/Black_win.sh" "$APP_PATH/Black_win.sh"
 cp "./src/freeze_script.py" "$APP_PATH/freeze_script.py"
-
 chmod +x "$APP_PATH/Black_win.sh"
+
+clear
 
 loading_bar 6 "Creating .desktop file"
 cat > "$DESK_FILE" <<EOF
@@ -37,13 +55,17 @@ Name=Black Wind by IACEENE
 Comment=Launch Black Wind by IACEENE
 Exec='$HOME/.local/share/apps/Black_wind/Black_win.sh'
 Icon=$APP_PATH/image.png
-Terminal=true
+Terminal=false
 Type=Application
 Categories=Development;Utility;
 EOF
 
+clear
+
 loading_bar 3 "Updating desktop database"
 update-desktop-database "$HOME/.local/share/applications/"
+
+clear
 
 loading_bar 4 "Adding to GNOME favorites"
 APP="Black_Wind.desktop"
@@ -53,9 +75,16 @@ if [[ $FAVS != *"$APP"* ]]; then
   gsettings set org.gnome.shell favorite-apps "$NEW_FAVS"
 fi
 
+clear
+
 loading_bar 5 "Installing Python dependency (python-xlib)"
 cd "$APP_PATH"
 pip install python-xlib
 
+clear
+
 echo -e "\n✅ Setup completed successfully!"
 echo  "Thanks to IACEENE"
+
+flatpak run com.google.Chrome "https://github.com/iaceene/Black_Window"&
+
