@@ -21,7 +21,7 @@ A Linux tool that grabs exclusive control over keyboard and mouse input by displ
 **Run the install script**:
 
    ```bash
-   ./install_black_wind.sh
+   ./install.sh
    ```
 
    The script will:
@@ -39,7 +39,7 @@ A Linux tool that grabs exclusive control over keyboard and mouse input by displ
 **Run the uninstaller**:
 
    ```bash
-   ./uninstall_black_wind.sh
+   ./uninstall.sh
    ```
 
    This will:
