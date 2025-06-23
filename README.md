@@ -4,7 +4,7 @@ A Linux tool that grabs exclusive control over keyboard and mouse input by displ
 
 ---
 
-## Legal Disclaimer
+## Legal Disclaimer ⛔
 
 **Use this tool responsibly.**
 
